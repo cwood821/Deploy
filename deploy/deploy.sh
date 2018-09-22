@@ -28,6 +28,6 @@ if [ ! -d "$DEPLOYMENT_LOG_DIRECTORY" ]; then
 fi
 
 # Rsync new files
-rsync -e "/usr/bin/ssh"  --bwlimit=2000 -avP  $LOCAL_PUBLIC_DIRECTORY $SSH_USER@$REMOTE_HOST:$REMOTE_PUBLIC_DIRECTORY >> $DEPLOYMENT_LOG_FILE
+rsync -e "/usr/bin/ssh" -v -rz --checksum --delete $LOCAL_PUBLIC_DIRECTORY $SSH_USER@$REMOTE_HOST:$REMOTE_PUBLIC_DIRECTORY >> $DEPLOYMENT_LOG_FILE
 
 echo "Launched! 🚀"
