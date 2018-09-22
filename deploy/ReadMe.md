@@ -12,4 +12,4 @@ Drop-in `rsync` deployment for small projects.
 
 # Bonus
 - Rsync output is logged to a directory you specify in the `.env` file.
-- Run a script or command pre-deployment adding its path to the `PRE_DEPLOYMENT_SCRIPT` variable in the `.env` file
+- Run a script or command pre-deployment by adding its path to the `PRE_DEPLOYMENT_SCRIPT` variable in the `.env` file
