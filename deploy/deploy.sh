@@ -27,7 +27,7 @@ if [ ! -d "$DEPLOYMENT_LOG_DIRECTORY" ]; then
   mkdir -p $1 $DEPLOYMENT_LOG_DIRECTORY
 fi
 
-# Rsync new files
+# Rsync new files and delete removed files
 rsync -e "/usr/bin/ssh" -v -rz --checksum --delete $LOCAL_PUBLIC_DIRECTORY $SSH_USER@$REMOTE_HOST:$REMOTE_PUBLIC_DIRECTORY >> $DEPLOYMENT_LOG_FILE
 
 # Check if the deployed site is returning an OK response
@@ -36,7 +36,6 @@ HTTP_OK_RESPONSE="200"
 HTTP_RESPONSE=$(curl -s -o /dev/null -I -w "%{http_code}" $WEB_URL)
 
 if [[ $HTTP_RESPONSE == $HTTP_OK_RESPONSE ]]; then
-  # Do something here
   echo "Launched! 🚀"
 else
   echo "Welp, something went wrong. 💥"
