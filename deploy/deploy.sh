@@ -30,4 +30,15 @@ fi
 # Rsync new files
 rsync -e "/usr/bin/ssh" -v -rz --checksum --delete $LOCAL_PUBLIC_DIRECTORY $SSH_USER@$REMOTE_HOST:$REMOTE_PUBLIC_DIRECTORY >> $DEPLOYMENT_LOG_FILE
 
-echo "Launched! 🚀"
+# Check if the deployed site is returning an OK response
+# https://superuser.com/questions/272265/getting-curl-to-output-http-status-code#442395
+HTTP_OK_RESPONSE="200"
+HTTP_RESPONSE=$(curl -s -o /dev/null -I -w "%{http_code}" $WEB_URL)
+
+if [[ $HTTP_RESPONSE == $HTTP_OK_RESPONSE ]]; then
+  # Do something here
+  echo "Launched! 🚀"
+else
+  echo "Welp, something went wrong. 💥"
+  echo "HTTP $HTTP_RESPONSE response from $WEB_URL";
+fi
