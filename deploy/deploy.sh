@@ -38,7 +38,6 @@ function run_deployment_hook_script() {
 
 run_deployment_hook_script "predeployment" $PRE_DEPLOYMENT_SCRIPT
 
-
 # Check if we have the deployment log directory, and that it has a name given in the 
 # the configuration
 if [ ! -d "$DEPLOYMENT_LOG_DIRECTORY" ] && [ ! -z $DEPLOYMENT_LOG_DIRECTORY ]; then
