@@ -8,7 +8,7 @@ FAILURE_CODE=1
 # Check if we have the proper configuration via a .env
 if [ ! -f .env ]; then
     echo "❌ Could not find a .env file. Launch aborted."
-    exit 1
+    exit $FAILURE_CODE
 fi
 
 # Make configuration available via .env file
