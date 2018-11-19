@@ -1,15 +1,16 @@
 # Deploy
-
-Drop-in `rsync` deployment for small projects.
+Drop-in `rsync` deployment for small projects. Originally developed as a lightweight option for small, static sites.
 
 # Assumptions
 - You have passwordless SSH configured for your server
 
 # Usage 
-- Add your SSH, server, and project information to the provided `.env` file
+- Add your SSH, destination server, and project information to the provided `.env` file
 - Make the `deploy.sh` file executable
 - Run `./deploy.sh` in your project's directory
 
-# Bonus
+# Features
+- Supports pre and post-deployment script execution for build, cleanup, or other tasks
+- Checks for a 200 response from the destination web server post-deployment
 - Rsync output is logged to a directory you specify in the `.env` file.
 - Run a script or command pre-deployment by adding its path to the `PRE_DEPLOYMENT_SCRIPT` variable in the `.env` file
