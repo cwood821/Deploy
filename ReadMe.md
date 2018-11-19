@@ -10,7 +10,6 @@ Drop-in `rsync` deployment for small projects. Originally developed as a lightwe
 - Run `./deploy.sh` in your project's directory
 
 # Features
-- Supports pre and post-deployment script execution for build, cleanup, or other tasks
+- Supports pre and post-deployment script execution for build, cleanup, or other tasks (define them in the `.env` file)
 - Checks for a 200 response from the destination web server post-deployment
 - Rsync output is logged to a directory you specify in the `.env` file.
-- Run a script or command pre-deployment by adding its path to the `PRE_DEPLOYMENT_SCRIPT` variable in the `.env` file
